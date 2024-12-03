@@ -1,0 +1,10 @@
+/* Tailwind layers */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base layer (routed components) */
+
+@layer base {
+}
