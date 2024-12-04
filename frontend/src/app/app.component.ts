@@ -9,5 +9,23 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  name = 'Victor';
+  icon: string = 'menu-icon.png'
+  menuDisplayed: boolean = false
+
+  toggleMenu(): void {
+    var links = document.getElementsByClassName("dropdown-link")
+    if (this.menuDisplayed) {
+      for (let i=0; i<links.length; i++) {
+        (links[i] as HTMLElement).style.display = "none"
+      }
+      this.icon = 'menu-icon.png'
+      this.menuDisplayed = false
+    } else {
+      for (let i=0; i<links.length; i++) {
+        (links[i] as HTMLElement).style.display = "block"
+      }
+      this.icon = 'cancel-icon.png'
+      this.menuDisplayed = true
+    }
+  }
 }
