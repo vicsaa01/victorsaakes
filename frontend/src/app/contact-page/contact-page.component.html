@@ -1,7 +1,7 @@
-<div class="grid grid-cols-6 justify-center">
+<div class="grid lg:grid-cols-6 md:grid-cols-8 sm:grid-cols-10 grid-cols-12 justify-center">
     <div class="col-span-1"></div>
 
-    <form class="col-span-4" [formGroup]="contactForm" (submit)="submitForm()">
+    <form class="lg:col-span-4 md:col-span-6 sm:col-span-8 col-span-10" [formGroup]="contactForm" (submit)="submitForm()">
         <div class="grid grid-rows-auto">
             <h1 class="text-2xl text-center font-semibold text-slate-800 m-10">Send me a message</h1>
             <br/>
@@ -26,6 +26,8 @@
 
                 <button type="submit" class="w-auto md:col-span-1 sm:col-span-2 col-span-2 border border-slate-800 rounded p-2 hover:bg-slate-300 hover:font-bold">Send</button>
             </div>
+
+            <br/><br/><br/>
 
             <div class="grid grid-cols-6 mt-10">
                 <div class="col-span-1"></div>
