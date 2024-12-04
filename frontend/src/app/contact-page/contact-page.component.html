@@ -4,26 +4,27 @@
     <form class="col-span-4" [formGroup]="contactForm" (submit)="submitForm()">
         <div class="grid grid-rows-auto">
             <h1 class="text-2xl text-center font-semibold text-slate-800 m-10">Send me a message</h1>
+            <br/>
 
-            <div class="grid grid-cols-2 gap-10">
+            <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
                 <div class="col-span-1 grid grid-rows-auto">
-                    <label class="mt-7 mb-3" for="name">Name</label>
+                    <label class="mb-3" for="name">Name</label>
                     <input class="border border-slate-800 rounded p-2" formControlName="name" type="text" id="name" name="name" placeholder="Rodion Raskolnikov" required/>
                 </div>
 
                 <div class="col-span-1 grid grid-rows-auto">
-                    <label class="mt-7 mb-3" for="email">E-mail address</label>
+                    <label class="mb-3" for="email">E-mail address</label>
                     <input class="border border-slate-800 rounded p-2" formControlName="email" type="email" name="email" placeholder="rodion.raskolnikov@mail.com" required/>
                 </div>
             </div>
 
-            <label class="mt-7 mb-3" for="message">Message</label>
+            <label class="mt-10 mb-3" for="message">Message</label>
             <textarea class="border border-slate-800 rounded p-2" formControlName="message" name="message" placeholder="Write message here" required></textarea>
 
             <div class="grid grid-cols-6 gap-5 mt-10">
-                <div class="col-span-5"></div>
+                <div class="md:col-span-5 sm:col-span-4 col-span-4"></div>
 
-                <button type="submit" class="w-auto border border-slate-800 rounded p-2 hover:bg-slate-300 hover:font-bold">Send</button>
+                <button type="submit" class="w-auto md:col-span-1 sm:col-span-2 col-span-2 border border-slate-800 rounded p-2 hover:bg-slate-300 hover:font-bold">Send</button>
             </div>
 
             <div class="grid grid-cols-6 mt-10">
