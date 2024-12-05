@@ -1,0 +1,7 @@
+<div class="bg-slate-200 rounded-lg p-3 mt-5">
+    <h3 class="text-lg font-semibold">{{ institution }}</h3>
+    <p class="italic mb-2">{{ duration }}</p>
+    <ul class="list-disc pl-10">
+        <li *ngFor="let point of bulletPoints">{{ point }}</li>
+    </ul>
+</div>
