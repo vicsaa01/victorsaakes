@@ -1,0 +1,1 @@
+export const backendUrl: string = 'localhost:8000'

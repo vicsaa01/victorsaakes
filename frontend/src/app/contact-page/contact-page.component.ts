@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 
+import { backendUrl } from '../url'
+
 @Component({
   selector: 'app-contact-page',
   standalone: true,
@@ -30,8 +32,7 @@ export class ContactPage {
     } else {
       this.formError = false
 
-      let url = 'localhost:8000'
-      fetch('http://' + url + '/send-mail', {
+      fetch('http://' + backendUrl + '/send-mail', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
