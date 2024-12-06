@@ -2,8 +2,6 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms'
 
-import { MessageBroker } from '../messageBroker';
-
 @Component({
   selector: 'app-contact-page',
   standalone: true,
@@ -19,21 +17,43 @@ export class ContactPage {
   })
   formError = false
   sending = false
-  messageBroker = new MessageBroker()
 
   submitForm() {
-    if (this.contactForm.value.name == '' || this.contactForm.value.email == '' || this.contactForm.value.message == '') {
+    var name = this.contactForm.value.name ?? '<Anonymous>'
+    var email = this.contactForm.value.email ?? '<Anonymous>'
+    var message = this.contactForm.value.message ?? '<No message>'
+
+    console.log('Name: ' + name + ' / Email: ' + email + ' / Message: ' + message)
+
+    if (name == '' || email == '' || message == '') {
       this.formError = true
     } else {
       this.formError = false
-      this.messageBroker.sendMessage(this.contactForm.value.name ?? '<Anonymous>', this.contactForm.value.email ?? '<Anonymous>', this.contactForm.value.message ?? '<No message>')
-      alert('Message sent')
-      this.contactForm = new FormGroup({
-        name: new FormControl('', Validators.required),
-        email: new FormControl('', Validators.required),
-        message: new FormControl('', Validators.required)
+
+      let url = 'localhost:8000'
+      fetch('http://' + url + '/send-mail', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({name: name, email: email, message: message})
+      })
+      .then((res) => { return res.json() })
+      .then((data) => {
+          console.log('Success: (see line below)')
+          console.log(data)
+          alert('Message sent')
+            
+          this.contactForm = new FormGroup({
+            name: new FormControl('', Validators.required),
+            email: new FormControl('', Validators.required),
+            message: new FormControl('', Validators.required)
+          })
+      })
+      .catch((error) => {
+          console.log('Error: ' + error.message)
+          alert('Error sending message')
       })
     }
-    
   }
 }
