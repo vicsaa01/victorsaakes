@@ -10,6 +10,7 @@ import { CommonModule } from '@angular/common';
 })
 export class CVEntryComponent {
   @Input() institution!: string
+  @Input() role!: string
   @Input() duration!: string
   @Input() bulletPoints!: string[]
 }
