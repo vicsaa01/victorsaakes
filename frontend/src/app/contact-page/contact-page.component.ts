@@ -32,7 +32,7 @@ export class ContactPage {
     } else {
       this.formError = false
 
-      fetch('http://' + backendUrl + '/send-mail', {
+      fetch(backendUrl + '/send-mail', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'

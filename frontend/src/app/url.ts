@@ -1,1 +1,1 @@
-export const backendUrl: string = 'localhost:8000'
+export const backendUrl: string = 'https://api-victorsaakes.onrender.com'
