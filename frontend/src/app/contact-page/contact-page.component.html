@@ -1,46 +1,48 @@
-<div class="grid lg:grid-cols-6 md:grid-cols-8 sm:grid-cols-10 grid-cols-12 justify-center">
-    <div class="col-span-1"></div>
+<div class="lg:h-screen md:h-fit">
+    <div class="grid lg:grid-cols-6 md:grid-cols-8 sm:grid-cols-10 grid-cols-12 justify-center">
+        <div class="col-span-1"></div>
 
-    <form class="lg:col-span-4 md:col-span-6 sm:col-span-8 col-span-10" [formGroup]="contactForm" (submit)="submitForm()">
-        <div class="grid grid-rows-auto">
-            <h1 class="text-2xl text-center font-semibold text-slate-800 m-10">Send me a message</h1>
-            <br/>
+        <form class="lg:col-span-4 md:col-span-6 sm:col-span-8 col-span-10" [formGroup]="contactForm" (submit)="submitForm()">
+            <div class="grid grid-rows-auto">
+                <h1 class="text-2xl text-center font-semibold text-slate-800 m-10">Send me a message</h1>
+                <br/>
 
-            <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
-                <div class="col-span-1 grid grid-rows-auto">
-                    <label class="mb-3" for="name">Name</label>
-                    <input class="border border-slate-800 rounded p-2" formControlName="name" type="text" id="name" name="name" placeholder="Rodion Raskolnikov" required/>
+                <div class="grid md:grid-cols-2 sm:grid-cols-1 gap-10">
+                    <div class="col-span-1 grid grid-rows-auto">
+                        <label class="mb-3" for="name">Name</label>
+                        <input class="border border-slate-800 rounded p-2" formControlName="name" type="text" id="name" name="name" placeholder="Rodion Raskolnikov" required/>
+                    </div>
+
+                    <div class="col-span-1 grid grid-rows-auto">
+                        <label class="mb-3" for="email">E-mail address</label>
+                        <input class="border border-slate-800 rounded p-2" formControlName="email" type="email" name="email" placeholder="rodion.raskolnikov@mail.com" required/>
+                    </div>
                 </div>
 
-                <div class="col-span-1 grid grid-rows-auto">
-                    <label class="mb-3" for="email">E-mail address</label>
-                    <input class="border border-slate-800 rounded p-2" formControlName="email" type="email" name="email" placeholder="rodion.raskolnikov@mail.com" required/>
-                </div>
-            </div>
+                <label class="mt-10 mb-3" for="message">Message</label>
+                <textarea class="border border-slate-800 rounded p-2" formControlName="message" name="message" placeholder="Write message here" required></textarea>
 
-            <label class="mt-10 mb-3" for="message">Message</label>
-            <textarea class="border border-slate-800 rounded p-2" formControlName="message" name="message" placeholder="Write message here" required></textarea>
+                <div class="grid grid-cols-6 gap-5 mt-10">
+                    <div class="md:col-span-5 sm:col-span-4 col-span-4"></div>
 
-            <div class="grid grid-cols-6 gap-5 mt-10">
-                <div class="md:col-span-5 sm:col-span-4 col-span-4"></div>
-
-                <button type="submit" class="w-auto md:col-span-1 sm:col-span-2 col-span-2 border border-slate-800 rounded p-2 hover:bg-slate-300 hover:font-bold">Send</button>
-            </div>
-
-            <br/><br/><br/>
-
-            <div class="grid grid-cols-6 mb-10">
-                <div class="col-span-1"></div>
-
-                <div class="col-span-4">
-                    <div *ngIf="formError" class="rounded border border-red-700 bg-red-200 text-red-700 p-2">Please fill in all the fields</div>
-                    <div *ngIf="sending" class="rounded border border-slate-700 bg-slate-200 text-slate-700 p-2">Sending message...</div>
+                    <button type="submit" class="w-auto md:col-span-1 sm:col-span-2 col-span-2 border border-slate-800 rounded p-2 hover:bg-slate-300 hover:font-bold">Send</button>
                 </div>
 
-                <div class="col-span-1"></div>
-            </div>
-        </div>
-    </form>
+                <br/><br/><br/>
 
-    <div class="col-span-1"></div>
+                <div class="grid grid-cols-6 mb-10">
+                    <div class="col-span-1"></div>
+
+                    <div class="col-span-4">
+                        <div *ngIf="formError" class="rounded border border-red-700 bg-red-200 text-red-700 p-2">Please fill in all the fields</div>
+                        <div *ngIf="sending" class="rounded border border-slate-700 bg-slate-200 text-slate-700 p-2">Sending message...</div>
+                    </div>
+
+                    <div class="col-span-1"></div>
+                </div>
+            </div>
+        </form>
+
+        <div class="col-span-1"></div>
+    </div>
 </div>
